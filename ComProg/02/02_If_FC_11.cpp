@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+using namespace std;
+typedef long long ll;
+int main(){
+    cin.tie(nullptr)->sync_with_stdio(false);cout.tie(0);
+    int a, b, c, d, e;
+    cin >> a >> b >> c >> d >> e;
+    if(a > b){
+        swap(a, b);
+    }
+    if(c > d){
+        swap(c, d);
+    }
+    if(a > c){
+        swap(b, d);
+        c = a;
+    }
+    a = e;
+    if(a > b){
+        swap(a, b);
+    }
+    if(c > a){
+        swap(b, d);
+        a = c;
+    }
+    if(a > d){
+        cout << d;
+    }
+    else{
+        cout << a;
+    }
+}
