@@ -9,5 +9,5 @@ int main(){
         cin >> e;
     }
     sort(v.begin(), v.end());
-    cout << fixed << setprecision(2) << (v[1] + v[2]) / 2.0;
+    cout << round((v[1] + v[2]) / 2.0 * 100.0) / 100.0;
 }

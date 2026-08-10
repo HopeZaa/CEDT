@@ -27,5 +27,5 @@ int main(){
     blue += d2;
     int t = red + black + blue;
     cout << t << ' ';
-    cout << fixed << setprecision(2) << sin(2.0 * M_PI * t / 23.0) << ' ' << sin(2.0 * M_PI * t / 28.0) << ' ' << sin(2.0 * M_PI * t / 33.0);
+    cout<< round(sin(2.0 * M_PI * t / 23.0) * 100.0) / 100.0 << ' ' << round(sin(2.0 * M_PI * t / 28.0) * 100.0) / 100.0 << ' ' << round(sin(2.0 * M_PI * t / 33.0) * 100.0) / 100.0;
 }
