@@ -4,22 +4,17 @@ using namespace std;
 typedef long long ll;
 int main(){
     cin.tie(nullptr)->sync_with_stdio(false);cout.tie(0);
-    string text, sen, s = "-";
+    string text, sen = "-", s;
     int cnt = 0;
     getline(cin, text);
     getline(cin, sen);
     s += sen;
     s += '-';
-    for(int i=1;i<s.length() - text.length();++i){
-        string sub = s.substr(i, text.length());
-        if(sub == text and !isalpha(s[i - 1]) and !isalpha(s[i + text.length()])){
+    for(int i=1;i<=sen.length() - text.length();++i){
+        string temp = sen.substr(i, text.length());
+        if(text == temp and !isalpha(sen[i - 1]) and !isalpha(sen[i + text.length()])){
             ++cnt;
         }
     }
     cout << cnt;
 }
-/*
-abc
--abcdef-
-01234567
-*/
