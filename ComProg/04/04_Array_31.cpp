@@ -12,6 +12,10 @@ int main(){
     string tens[] = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
     int k=0;
     cin >> text;
+    if(stoi(text) == 0){
+        cout << "zero";
+        return 0;
+    }
     vector<string> v;
     for(int i=text.length()-1;i>=0;--i){
         ++k;

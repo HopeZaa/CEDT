@@ -10,6 +10,8 @@ int main(){
     for(auto &e : v){
         cin >> e;
     }
+    v.insert(v.begin(), INT_MAX);
+    v.emplace_back(INT_MAX);
     for(int i=1;i<v.size() - 1;++i){
         if(v[i] > v[i - 1] and v[i] > v[i + 1]){
             ++cnt;

@@ -7,57 +7,36 @@ int main(){
     int n;
     cin >> n;
     vector<int> v(n);
-    vector<string> ans;
     priority_queue<int> pq;
-    string text = "";
     for(auto &e : v){
         cin >> e;
         pq.emplace(e);
-        text += to_string(e);
-        text += " ";
     }
-    ans.emplace_back(text);
-    bool isPrint = false;
-    while(!pq.empty()){
-        auto e = pq.top();
+    for(auto e : v){
+        cout << e << ' ';
+    }
+    cout << endl;
+    for(int i=n - 1;i>=0;--i){
+        if(v[i] != pq.top()){
+            int pos;
+            for(int j=0;j<n;++j){
+                if(pq.top() == v[j]){
+                    pos = j;
+                }
+            }
+            if(pos != 0){
+                reverse(v.begin(), v.begin() + pos + 1);
+                for(auto e : v){
+                    cout << e << ' ';
+                }
+                cout << endl;
+            }
+            reverse(v.begin(), v.begin() + i + 1);
+            for(auto e : v){
+                cout << e << ' ';
+            }
+            cout << endl;
+        }
         pq.pop();
-        int pos;
-        text = "";
-        for(int i=0;i<v.size();++i){
-            if(v[i] == e){
-                pos = i;
-            }
-        }
-        // cout << "=" << e << ' ' << pos << '=' << n << '-';
-        if(v[n - 1] == e){
-            --n;
-            continue;
-        }
-        reverse(v.begin(), v.begin() + pos + 1);
-        if(!isPrint){
-            for(auto e : v){
-                text += to_string(e);
-                text += " ";
-            }
-            isPrint = false;
-            ans.emplace_back(text);
-        }
-        text = "";
-        if(v[--n] != e){
-            reverse(v.begin(), v.begin() + n + 1);
-            isPrint = true;
-            for(auto e : v){
-                text += to_string(e);
-                text += " ";
-            }
-            ans.emplace_back(text); 
-        }
-    }
-    string pv = "-";
-    for(auto e : ans){
-        if(e != pv){
-            cout << e << endl;
-        }
-        pv = e;
     }
 }
