@@ -10,8 +10,16 @@ int main(){
     for(int i=0;i<text.length();++i){
         if(i == text.length() - 1){
             if(!isdigit(text[i])){
-                temp += text[i];
-                ans.emplace_back(temp);
+                if(islower(text[i])){
+                    temp += text[i];
+                    ans.emplace_back(temp);
+                }
+                else{
+                    ans.emplace_back(temp);
+                    temp = "";
+                    temp += text[i];
+                    ans.emplace_back(temp);
+                }
             }
             else{
                 string temp2 = "";
@@ -38,19 +46,23 @@ int main(){
     }
     bool pvDigit = false;
     string anss = "";
-    for(auto e : ans){
+    for(int i=0;i<ans.size();++i){
+        string e = ans[i];
         if(isdigit(e[0])){
             pvDigit = true;
             anss += e;
         }
         else{
             if(pvDigit){
-                anss += ", " + e + ", ";
+                anss += ", " + e;
             }
             else{
-                anss += e + ", ";
+                anss += e;
             }
             pvDigit = false;
+            if(i != ans.size() - 1){
+                anss += ", ";
+            }
         }
     }
     cout << anss;
