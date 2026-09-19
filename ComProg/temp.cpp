@@ -14,7 +14,7 @@ int main(){
         int sum = 0;
         for(int j=0;j<n;++j){
             sum += v[(i + j) % n];
-            if(v[(i + j + 1) % n] < v[(i + j) % n]){
+            if(v[(i + j) % n] > v[(i + j + 1) % n]){
                 break;
             }
         }
@@ -27,7 +27,7 @@ int main(){
             int sum = 0;
             for(int j=0;j<n-1;++j){
                 sum += temp[(i + j) % (n - 1)];
-                if(temp[(i + j + 1) % (n - 1)] < temp[(i + j) % (n - 1)]){
+                if(temp[(i + j) % (n - 1)] > temp[(i + j + 1) % (n - 1)]){
                     break;
                 }
             }
@@ -36,3 +36,7 @@ int main(){
     }
     cout << maxN;
 }
+/*
+3.142142142142 => x / y
+
+*/
