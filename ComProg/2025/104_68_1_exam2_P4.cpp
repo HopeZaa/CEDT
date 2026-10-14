@@ -14,7 +14,6 @@ void recur(vector<pair<int, int>> data, int sum, int idx){
         return;
     }
     for(int i=0;i<=data[idx].second;++i){
-        // cout << data[idx].first << ' ' << i << ' ' << data[idx].first * i << endl;
         recur(data, sum + data[idx].first * i, idx + 1);
     }
 }
